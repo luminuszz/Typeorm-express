@@ -1,4 +1,4 @@
-# Awesome Project Build with TypeORM
+# Api with type-orm and express
 
 Steps to run this project:
 
