@@ -1,0 +1,19 @@
+
+{
+  "synchronize": true,
+  "logging": false,
+  "type": "postgres",
+  "host": "localhost",
+  "port": 4000,
+  "username": "postgres",
+  "password": "123",
+  "database": "postgres",
+  "entities": ["dist/entity/**/*.js"],
+  "migrations": ["dist/migration/**/*.js"],
+  "subscribers": ["dist/subscriber/**/*.js"],
+  "cli": {
+    "entitiesDir": "src/entity",
+    "migrationsDir": "src/migration",
+    "subscribersDir": "src/subscriber"
+  }
+}
