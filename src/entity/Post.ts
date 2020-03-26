@@ -16,7 +16,10 @@ export default class Post extends BaseEntity {
   })
   description: string;
 
-  @Column()
+  @Column({
+    type: Boolean,
+    default: false
+  })
   isPublished: boolean;
 
   @CreateDateColumn({
@@ -32,6 +35,7 @@ export default class Post extends BaseEntity {
   @ManyToOne(
     type => User,
     user => user.posts
+
   )
   user: User;
 }

@@ -5,7 +5,7 @@ class UserController {
   async index (req: Request, res: Response): Promise<Response> {
     try {
       const user = await User.find()
-      return res.send().json(user)
+      return res.json(user)
     } catch (error) {
       return res.json({ error: error.message })
     }
@@ -20,7 +20,7 @@ class UserController {
         return res.status(400).json({ messege: 'Usuário ja existe' })
       }
       const user = await User.save(data)
-      return res.send().json(user)
+      return res.json(user)
     } catch (error) {
       return res.json({ error: error.message })
     }
@@ -33,7 +33,7 @@ class UserController {
       const user = await User.findOne(id)
       User.merge(user, data)
       const save = User.save(user)
-      return res.send().json(save)
+      return res.json(save)
     } catch (error) {
       return res.status(400).json({ error: error.message })
     }
@@ -43,7 +43,7 @@ class UserController {
     try {
       const { id } = req.params
       const user = User.delete(id)
-      return res.send().json(user)
+      return res.json(user)
     } catch (error) {
       return res.status(400).json({ error: error.message })
     }
