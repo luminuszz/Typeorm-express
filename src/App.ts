@@ -43,7 +43,7 @@ class App {
       })
   }
 
-  private routes ():void {
+  private routes (): void {
     this.express.use(routes)
   }
 }
