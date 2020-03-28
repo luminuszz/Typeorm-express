@@ -9,11 +9,11 @@
   "password": "123",
   "database": "postgres",
   "entities": ["dist/entity/**/*.js"],
-  "migrations": ["dist/migration/**/*.js"],
+  "migrations": ["dist/migrations/**/*.js"],
   "subscribers": ["dist/subscriber/**/*.js"],
   "cli": {
-    "entitiesDir": "src/entity",
-    "migrationsDir": "src/migrations",
+    "entitiesDir": "./src/entity",
+    "migrationsDir": "./src/migrations",
     "subscribersDir": "src/subscriber"
   }
 }

@@ -13,7 +13,6 @@ import Post from './Post'
 
 @Entity()
 export default class User extends BaseEntity {
-  [x: string]: any;
   @PrimaryGeneratedColumn({ type: 'int' })
   id: number;
 
@@ -33,6 +32,9 @@ export default class User extends BaseEntity {
   })
   updatedAt: Date;
 
-  @OneToMany(type => Post, post => post.user)
-  posts:Post[]
+  @OneToMany(
+    () => Post,
+    post => post.userConnection
+  )
+  postConnetion: Promise<Post[]>;
 }

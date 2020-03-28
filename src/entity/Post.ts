@@ -1,10 +1,13 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, CreateDateColumn, UpdateDateColumn } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, CreateDateColumn, UpdateDateColumn, JoinColumn } from 'typeorm'
 
 import User from './User'
 @Entity()
 export default class Post extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
+
+  @Column({ name: 'user_id' })
+  userId: number;
 
   @Column({
     length: 150
@@ -33,9 +36,10 @@ export default class Post extends BaseEntity {
   updatedAt: Date;
 
   @ManyToOne(
-    type => User,
-    user => user.posts
-
+    () => User,
+    user => user.postConnetion,
+    { primary: true }
   )
-  user: User;
+  @JoinColumn({ name: 'user_id' })
+  userConnection: Promise<User>;
 }

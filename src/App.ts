@@ -33,8 +33,8 @@ class App {
       username: 'postgres',
       password: '123',
       database: 'postgres',
-      entities: [path.resolve(__dirname, './', 'entity', '*')],
-      migrations: [path.resolve(__dirname, './', 'migration', '*')],
+      entities: [path.join(__dirname, './', 'entity', '*')],
+      migrations: [path.join(__dirname, './', 'migrations', '*')],
       synchronize: true
     })
       .then(() => console.log('connected'))

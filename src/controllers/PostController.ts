@@ -5,11 +5,10 @@ import Post from '../entity/Post'
 class PostController {
   async store (req: Request, res: Response): Promise<Response> {
     const data = req.body
-    const { title } = data
+    const { title } = req.body
     if (await Post.findOne({ title })) {
       return res.status(400).json({ message: 'Post já existe' })
     }
-
     const post = await Post.save(data)
 
     return res.json(post)
